@@ -21,12 +21,37 @@ def solution(A):
       if total>10**7: return -1
     return total
 
-# -4 1  l:-4            r:1     1 open circle (new 1, old 0), 0 intersection C(1,0): j-i=0-0
-# -1 4  l:-4 -1         r:1     2 open circle (new 1, old 1), 1 intersection C(1,1): j-i=1-0
-#  0 4  l:-4 -1 0       r:1     3 open circle (new 1, old 2), 2 intersection C(1,2): j-i=2-0 
-#  0 5  l:-4 -1 0 0     r:1     4 open circle (new 1, old 3), 3 intersection C(1,3): j-i=3-0 
+# i=0 j=0
+# -4 1  l:NA      |-4     r:1     1 open circles (new 1, old 0), 0 intersection C(1,0): j-i=0-0
+# -1 4  l:-4      |-1     r:1     2 open circles (new 1, old 1), 1 intersection C(1,1): j-i=1-0
+#  0 4  l:-4 -1   | 0     r:1     3 open circles (new 1, old 2), 2 intersection C(1,2): j-i=2-0 
+#  0 5  l:-4 -1 0 | 0     r:1     4 open circles (new 1, old 3), 3 intersection C(1,3): j-i=3-0 
 #  2 6
-#  5 8
+#  5 8  j=4, i=0
+
+#  i=1 j=4
+# -4 1  l:-4 -1 0 0 | 2   r:1 4     4 open circles (new 1, old 3), 3 intersection C(1,3): j-i=4-1
+# -1 4  
+#  0 4  
+#  0 5  
+#  2 6
+#  5 8  j=5, i=1
+
+#  i=2 j=5
+# -4 1  l:-4 -1 0 0 2 |5     r:1 4 4    left[j]>right[i]
+# -1 4  
+#  0 4  
+#  0 5  
+#  2 6
+#  5 8  j=5, i=2
+
+#  i=3 j=5
+# -4 1  l:-4 -1 0 0 2 |5     r:1 4 4 5    3 open circles (1 new, old 2) 2 intersection C(1,2): j-i=5-3
+# -1 4  
+#  0 4  
+#  0 5  
+#  2 6
+#  5 8  
   
 A=[1,5,2,1,4,0]
 print(solution(A))
